@@ -28,14 +28,39 @@ edges = createEdgeSprites();
     //create box sprite and give velocity
 
 ball = createSprite(360, 100, 30, 30);
-ball.velocityY = 5;
-ball.velocityX = -7;
+ball.velocityY = 10;
+ball.velocityX = -17;
 
 }
 
 function draw() {
     background(rgb(169,169,169));
+    edges=createEdgeSprites();
+    ball.bounceOff(edges);
     //create edgeSprite
+
+    if(box1.isTouching(ball) && ball.bounceOff(box1)){
+        ball.shapeColor ="green"
+        music.play();
+    }
+    
+    if(box2.isTouching(ball) && ball.bounceOff(box2)){
+        ball.shapeColor = "blue";
+        music.play();
+
+    }
+
+    if(box3.isTouching(ball) && ball.bounceOff(box3)){
+        ball.shapeColor = "red";
+        music.play();
+
+    }
+
+    if(box4.isTouching(ball) && ball.bounceOff(box4)){
+        ball.shapeColor = "orange";
+        music.play();
+
+    }
 
 
 
